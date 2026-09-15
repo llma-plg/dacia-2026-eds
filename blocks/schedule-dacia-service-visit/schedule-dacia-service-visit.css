@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap');
+
+/* Required for correct iframe sizing — AEM section margins inflate shadow body */
+main > div,
+main > .section,
+main > .section:first-of-type {
+  margin: 0;
+}
+main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+body {
+  overflow: auto;
+}
+
+main .schedule-dacia-service-visit {
+  font-family: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+main .schedule-dacia-service-visit h1,
+main .schedule-dacia-service-visit h2,
+main .schedule-dacia-service-visit h3,
+main .schedule-dacia-service-visit [class*="title"] {
+  font-family: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Sharp, zero-radius corners throughout — brand principle */
+main .schedule-dacia-service-visit .sdsv-card {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #000;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Header carries the darkened khaki brand color (theme?.bg set inline in JS) */
+main .schedule-dacia-service-visit .sdsv-header {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+main .schedule-dacia-service-visit .sdsv-title {
+  margin: 0 !important;
+  font-size: 20px !important;
+  line-height: 1.15 !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+main .schedule-dacia-service-visit .sdsv-desc {
+  margin: 0 !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+  opacity: 0.85;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+main .schedule-dacia-service-visit .sdsv-chip {
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 2px 8px;
+  background: #fff;
+  color: #000;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 0;
+}
+
+main .schedule-dacia-service-visit .sdsv-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+}
+
+main .schedule-dacia-service-visit .sdsv-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+main .schedule-dacia-service-visit .sdsv-field-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+}
+
+main .schedule-dacia-service-visit .sdsv-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid #000;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+main .schedule-dacia-service-visit .sdsv-input:focus-visible {
+  outline: 2px solid #646b52;
+  outline-offset: 0;
+}
+
+main .schedule-dacia-service-visit .sdsv-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+main .schedule-dacia-service-visit .sdsv-actions-conf {
+  padding: 0 14px 14px;
+}
+
+main .schedule-dacia-service-visit .sdsv-btn {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+main .schedule-dacia-service-visit .sdsv-btn-primary {
+  border: 1px solid #646b52;
+  background: #646b52;
+  color: #fff;
+}
+
+main .schedule-dacia-service-visit .sdsv-btn-primary:hover,
+main .schedule-dacia-service-visit .sdsv-btn-primary:focus-visible {
+  background: #646b52;
+  opacity: 0.9;
+  outline: none;
+}
+
+/* Ghost/outline secondary CTA — white fill, black text, black 2px focus ring (brand spec) */
+main .schedule-dacia-service-visit .sdsv-btn-ghost {
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+}
+
+main .schedule-dacia-service-visit .sdsv-btn-ghost:hover {
+  background: #f2f2f0;
+}
+
+main .schedule-dacia-service-visit .sdsv-btn-ghost:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+main .schedule-dacia-service-visit .sdsv-conf-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+main .schedule-dacia-service-visit .sdsv-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #e2e2dd;
+  padding-bottom: 6px;
+}
+
+main .schedule-dacia-service-visit .sdsv-row-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+main .schedule-dacia-service-visit .sdsv-row-value {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+main .schedule-dacia-service-visit .sdsv-message {
+  margin: 2px 0 0 !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  opacity: 0.8;
+}
+
+/* Dark mode — dim the outer surface, keep the khaki header, invert form fields */
+@media (prefers-color-scheme: dark) {
+  main .schedule-dacia-service-visit .sdsv-card {
+    background: #161613;
+    color: #f2f2ee;
+    border-color: #f2f2ee;
+  }
+  main .schedule-dacia-service-visit .sdsv-input {
+    background: #1e1e1e;
+    color: #f2f2ee;
+    border-color: #f2f2ee;
+  }
+  main .schedule-dacia-service-visit .sdsv-btn-ghost {
+    background: #161613;
+    color: #f2f2ee;
+    border-color: #f2f2ee;
+  }
+  main .schedule-dacia-service-visit .sdsv-btn-ghost:hover {
+    background: #26261f;
+  }
+  main .schedule-dacia-service-visit .sdsv-btn-ghost:focus-visible {
+    outline-color: #f2f2ee;
+  }
+  main .schedule-dacia-service-visit .sdsv-chip {
+    background: #161613;
+    color: #f2f2ee;
+  }
+  main .schedule-dacia-service-visit .sdsv-row {
+    border-bottom-color: #3a3a33;
+  }
+}
+
+body.dark main .schedule-dacia-service-visit .sdsv-card {
+  background: #161613;
+  color: #f2f2ee;
+  border-color: #f2f2ee;
+}
+body.dark main .schedule-dacia-service-visit .sdsv-input {
+  background: #1e1e1e;
+  color: #f2f2ee;
+  border-color: #f2f2ee;
+}
+body.dark main .schedule-dacia-service-visit .sdsv-btn-ghost {
+  background: #161613;
+  color: #f2f2ee;
+  border-color: #f2f2ee;
+}
+body.dark main .schedule-dacia-service-visit .sdsv-btn-ghost:hover {
+  background: #26261f;
+}
+body.dark main .schedule-dacia-service-visit .sdsv-btn-ghost:focus-visible {
+  outline-color: #f2f2ee;
+}
+body.dark main .schedule-dacia-service-visit .sdsv-chip {
+  background: #161613;
+  color: #f2f2ee;
+}
+body.dark main .schedule-dacia-service-visit .sdsv-row {
+  border-bottom-color: #3a3a33;
+}
