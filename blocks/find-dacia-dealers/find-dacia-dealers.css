@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap');
+
+/* Required for correct iframe sizing — AEM section margins inflate shadow body */
+main > div,
+main > .section,
+main > .section:first-of-type {
+  margin: 0;
+}
+main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+body {
+  overflow: auto;
+}
+
+main .find-dacia-dealers {
+  font-family: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 8px;
+  max-width: 780px;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+main .find-dacia-dealers h1,
+main .find-dacia-dealers h2,
+main .find-dacia-dealers h3,
+main .find-dacia-dealers [class*="name"],
+main .find-dacia-dealers [class*="heading"] {
+  font-family: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ---------- no-results fallback (host run with zero stores only) ---------- */
+
+main .find-dacia-dealers-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+main .find-dacia-dealers-form-card {
+  max-width: 400px;
+  width: 100%;
+  background: #5d644d;
+  border-radius: 0;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+main .find-dacia-dealers-pin {
+  font-size: 28px;
+  opacity: 0.7;
+  color: #fff;
+  margin-bottom: 8px;
+  display: block;
+}
+
+main .find-dacia-dealers-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+
+main .find-dacia-dealers-hint {
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.7;
+  margin: 0 0 12px 0;
+}
+
+main .find-dacia-dealers-input {
+  width: 100%;
+  background: #fff;
+  border-radius: 0;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  color: #333;
+}
+
+main .find-dacia-dealers-search-btn {
+  background: #646b52;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background-color 0.15s ease;
+}
+
+main .find-dacia-dealers-search-btn:hover,
+main .find-dacia-dealers-search-btn:focus-visible {
+  background: #545a44;
+}
+
+/* ---------- results: compact side map + synchronized card row ---------- */
+
+main .find-dacia-dealers-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 18px;
+  padding: 4px;
+}
+
+main .find-dacia-dealers-map {
+  flex: 0 0 232px;
+  min-width: 0;
+  min-height: 240px;
+  border-radius: 0;
+}
+
+main .find-dacia-dealers-side {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+main .find-dacia-dealers-row-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+main .find-dacia-dealers-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 12px;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+main .find-dacia-dealers-row::-webkit-scrollbar {
+  display: none;
+}
+
+main .find-dacia-dealers-fade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 100%;
+  pointer-events: none;
+}
+
+main .find-dacia-dealers-store-card {
+  background: #5d644d;
+  border-radius: 0;
+  padding: 14px;
+  color: #fff;
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 260px;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  cursor: pointer;
+  border-top: 2px solid transparent;
+  transition: border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+main .find-dacia-dealers-store-card.is-selected {
+  border-top-color: #646b52;
+}
+
+main .find-dacia-dealers-store-card:focus-visible {
+  outline: 3px solid #646b52;
+  outline-offset: -3px;
+}
+
+main .find-dacia-dealers-store-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+main .find-dacia-dealers-store-pin {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+main .find-dacia-dealers-store-type {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
+main .find-dacia-dealers-store-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+main .find-dacia-dealers-store-addr {
+  font-size: 14px;
+  opacity: 0.78;
+}
+
+main .find-dacia-dealers-store-dist {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+main .find-dacia-dealers-store-phone {
+  font-size: 14px;
+  color: #edefe6;
+}
+
+main .find-dacia-dealers-store-hours {
+  font-size: 11px;
+  opacity: 0.65;
+}
+
+main .find-dacia-dealers-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 2px 0;
+}
+
+main .find-dacia-dealers-badge {
+  background: #646b52;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+main .find-dacia-dealers-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+main .find-dacia-dealers-cta {
+  flex: 1 1 calc(50% - 3px);
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 7px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+main .find-dacia-dealers-cta:hover,
+main .find-dacia-dealers-cta:focus-visible {
+  opacity: 0.88;
+}
+
+main .find-dacia-dealers-cta:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 1px;
+}
+
+main .find-dacia-dealers-cta.is-primary {
+  background: #646b52;
+  color: #ffffff;
+}
+
+main .find-dacia-dealers-cta.is-primary:hover,
+main .find-dacia-dealers-cta.is-primary:focus-visible {
+  background: #545a44;
+  opacity: 1;
+}
+
+/* ── Map engine ───────────────────────────────────────────────────────────── */
+
+main .find-dacia-dealers-map {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+main .find-dacia-dealers-map.is-fallback {
+  background: #5d644d;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+main .find-dacia-dealers-map-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  opacity: 0.75;
+  z-index: 1;
+}
+
+main .find-dacia-dealers-map-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 50% 42%, #646b5242, transparent 62%),
+    linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 100% 100%, 29px 29px, 29px 29px;
+  pointer-events: none;
+}
+
+main .find-dacia-dealers-map-anchor {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+main .find-dacia-dealers-map-pin {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  padding: 0;
+  border: 2px solid rgba(255,255,255,0.55);
+  border-radius: 50%;
+  background: #646b52;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  z-index: 2;
+}
+
+main .find-dacia-dealers-map-pin:hover {
+  transform: scale(1.12);
+}
+
+main .find-dacia-dealers-map-pin.is-active {
+  border-color: #fff;
+  transform: scale(1.18);
+  z-index: 1000;
+}
+
+main .find-dacia-dealers-map-pin-num {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+main .find-dacia-dealers-map-label {
+  position: relative;
+  display: inline-block;
+  transform: translate(-50%, calc(-100% - 8px));
+  white-space: nowrap;
+  padding: 5px 11px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  color: #1b1b1b;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, transform 0.12s;
+}
+
+main .find-dacia-dealers-map-label::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 0 0 2px 0;
+}
+
+main .find-dacia-dealers-map-label:hover {
+  transform: translate(-50%, calc(-100% - 8px)) scale(1.06);
+}
+
+main .find-dacia-dealers-map-label.is-active {
+  background: #646b52;
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+main .find-dacia-dealers-map-pin:focus-visible,
+main .find-dacia-dealers-map-label:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ── Inlined critical Leaflet layout CSS ──────────────────────────────────── */
+main .find-dacia-dealers .leaflet-pane,
+main .find-dacia-dealers .leaflet-tile,
+main .find-dacia-dealers .leaflet-marker-icon,
+main .find-dacia-dealers .leaflet-marker-shadow,
+main .find-dacia-dealers .leaflet-tile-container,
+main .find-dacia-dealers .leaflet-pane > svg,
+main .find-dacia-dealers .leaflet-pane > canvas,
+main .find-dacia-dealers .leaflet-zoom-box,
+main .find-dacia-dealers .leaflet-image-layer,
+main .find-dacia-dealers .leaflet-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+main .find-dacia-dealers .leaflet-container {
+  overflow: hidden;
+  font-family: inherit;
+  background: #2a2a2a;
+}
+
+main .find-dacia-dealers .leaflet-tile,
+main .find-dacia-dealers .leaflet-marker-icon,
+main .find-dacia-dealers .leaflet-marker-shadow {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+main .find-dacia-dealers .leaflet-tile { filter: inherit; visibility: hidden; }
+main .find-dacia-dealers .leaflet-tile-loaded { visibility: inherit; }
+main .find-dacia-dealers .leaflet-zoom-animated { transform-origin: 0 0; }
+main .find-dacia-dealers .leaflet-pane { z-index: 400; }
+main .find-dacia-dealers .leaflet-tile-pane { z-index: 200; }
+main .find-dacia-dealers .leaflet-overlay-pane { z-index: 400; }
+main .find-dacia-dealers .leaflet-shadow-pane { z-index: 500; }
+main .find-dacia-dealers .leaflet-marker-pane { z-index: 600; }
+main .find-dacia-dealers .leaflet-tooltip-pane { z-index: 650; }
+main .find-dacia-dealers .leaflet-popup-pane { z-index: 700; }
+main .find-dacia-dealers .leaflet-control { z-index: 800; position: relative; float: left; clear: both; pointer-events: auto; }
+
+main .find-dacia-dealers .leaflet-top,
+main .find-dacia-dealers .leaflet-bottom {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+main .find-dacia-dealers .leaflet-top { top: 0; }
+main .find-dacia-dealers .leaflet-bottom { bottom: 0; }
+main .find-dacia-dealers .leaflet-left { left: 0; }
+main .find-dacia-dealers .leaflet-right { right: 0; }
+main .find-dacia-dealers .leaflet-right .leaflet-control { float: right; }
+
+main .find-dacia-dealers .leaflet-tile {
+  max-width: none !important;
+  width: 256px !important;
+  height: 256px !important;
+}
+
+main .find-dacia-dealers .leaflet-pane img,
+main .find-dacia-dealers .leaflet-marker-icon,
+main .find-dacia-dealers .leaflet-image-layer,
+main .find-dacia-dealers .leaflet-container img {
+  max-width: none;
+}
+
+main .find-dacia-dealers .leaflet-tile {
+  filter: brightness(0.72) contrast(1.12);
+}
+
+main .find-dacia-dealers .leaflet-bar a {
+  background: #333;
+  color: #f4f4f4;
+  border-bottom-color: rgba(255,255,255,0.14);
+}
+
+main .find-dacia-dealers .leaflet-bar a:hover { background: #444; }
+
+main .find-dacia-dealers .leaflet-control-attribution {
+  background: rgba(20,20,20,0.72) !important;
+  color: #b8c2cc !important;
+  font-size: 8px !important;
+  line-height: 1.35 !important;
+  padding: 0 4px !important;
+}
+
+main .find-dacia-dealers .leaflet-control-attribution a { color: #8fb8ff !important; }
+
+main .find-dacia-dealers-map-marker {
+  background: transparent;
+  border: none;
+}
+
+@media (width <= 560px) {
+  main .find-dacia-dealers-layout {
+    flex-direction: column;
+  }
+
+  main .find-dacia-dealers-map {
+    flex: none;
+    min-height: 140px;
+  }
+}
+
+/* Dark mode — dim outer widget background only; keep palette card colors */
+@media (prefers-color-scheme: dark) {
+  main .find-dacia-dealers { background: transparent; }
+}
+body.dark main .find-dacia-dealers { background: transparent; }
